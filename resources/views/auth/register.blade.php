@@ -43,22 +43,22 @@
           <div class="mb-3 d-flex justify-content-between">
             <div class="col-7">
               <label for="address" class="form-label">Residenza</label>
-              <input type="text" name="address" class="form-control"  placeholder="Address">
+              <input type="text" id="address" name="address" class="form-control"  placeholder="Address">
             </div>
             <div class="col-4">
               <label for="zip" class="form-label">CAP</label>
-              <input type="text" name="zip" class="form-control"  placeholder="CAP">
+              <input type="text" id="zip" name="zip" class="form-control"  placeholder="CAP">
             </div>
           </div>
           
           <div class="mb-3 d-flex justify-content-between">
             <div class="col-7">
               <label for="city" class="form-label">Città</label>
-              <input type="text" name="city" class="form-control"  placeholder="City">
+              <input type="text" id="city" name="city" class="form-control"  placeholder="City">
             </div>
             <div class="col-4">
               <label for="province" class="form-label">Provincia</label>
-              <input type="text" name="province" class="form-control"  placeholder="Province">
+              <input type="text" id="province" name="province" class="form-control"  placeholder="Province">
             </div>
           </div>
           
@@ -66,11 +66,11 @@
           <div class="mb-3 d-flex justify-content-between">
             <div class="col-5">
               <label for="region" class="form-label">Regione</label>
-              <input type="text" name="region" class="form-control"  placeholder="Region">
+              <input type="text" id="region" name="region" class="form-control"  placeholder="Region">
             </div>
             <div class="col-5">
               <label for="country" class="form-label">Paese</label>
-              <input type="text" name="country" class="form-control"  placeholder="Country">
+              <input type="text" id="country" name="country" class="form-control"  placeholder="Country">
             </div>
           </div>
           <div class="text-center">

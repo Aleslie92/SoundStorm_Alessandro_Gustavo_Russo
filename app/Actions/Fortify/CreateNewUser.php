@@ -3,38 +3,50 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
-class CreateNewUser implements CreatesNewUsers
-{
+class CreateNewUser implements CreatesNewUsers {
     use PasswordValidationRules;
 
     /**
-     * Validate and create a newly registered user.
-     *
-     * @param  array<string, string>  $input
-     */
-    public function create(array $input): User
-    {
-        Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
+    * Validate and create a newly registered user.
+    *
+    * @param  array<string, string>  $input
+    */
+
+    public function create( array $input ): User {
+        Validator::make( $input, [
+            'name' => [ 'required', 'string', 'max:255' ],
             'email' => [
                 'required',
                 'string',
                 'email',
                 'max:255',
-                Rule::unique(User::class),
+                Rule::unique( User::class ),
             ],
             'password' => $this->passwordRules(),
-        ])->validate();
+        ] )->validate();
 
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-        ]);
+        $user = User::create( [
+            'name' => $input[ 'name' ],
+            'email' => $input[ 'email' ],
+            'password' => Hash::make( $input[ 'password' ] ),
+        ] );
+
+        $user->profile()->create( [
+            'address' => $input[ 'address' ],
+            'city' => $input[ 'city' ],
+            'province' => $input[ 'province' ] ,
+            'region' => $input[ 'region' ],
+            'country' => $input[ 'country' ],
+            'zip' => $input[ 'zip' ],
+            'phone' => $input[ 'phone' ],
+
+        ] );
+        return $user;
     }
 }
