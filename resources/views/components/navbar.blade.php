@@ -24,6 +24,7 @@
                 @csrf
                 <button type="submit" class="dropdown-item">Logout</button>
               </form>
+              <li><a class="dropdown-item" href="{{route('track.create')}}">Aggiungi Una Canzone</a></li>
               @else
               <p class="dropdown-item">Ciao, Visitatore</p>
               <li><hr class="dropdown-divider"></li>

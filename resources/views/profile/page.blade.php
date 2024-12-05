@@ -122,5 +122,32 @@
             </div>
             <a class="btn btn-warning" href="{{route('profile.edit',compact('user'))}}">Modifica Profilo</a>
         </div>
-    </div>   
-</x-layout>
+    </div>  
+    
+    <div class="container mt-5">
+        <div class="row">
+            <h2>I Miei Brani</h2>
+        </div>
+        <div class="row">
+            @foreach ($user->tracks as $track)
+            <div class="col-12 col-md-3">
+                <div class="card">
+                    <div class="text-center">
+                        <img class="img-fluid" src={{Storage::url($track->cover)}} alt="{{$track->title}}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{$track->title}}</h5>
+                        <p class="card-text">{{$track->description}}</p>
+                        <div>
+                            <audio class="w-100" controls>
+                                <source src="{{Storage::url($track->path)}}" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </x-layout>
