@@ -26,4 +26,4 @@ Route::post( '/music/create', [ TrackController::class, 'store' ] )->name( 'trac
 // ROTTA INDEX TRACK
 Route::get( '/music/all-tracks', [ TrackController::class, 'index' ] )->name( 'track.index' );
 // ROTTA CERCA PER ARTISTA
-Route::get( '/music/all-tracs/{user}/autor', [ TrackController::class, 'filterByUser' ] )->name( 'track.filterByUser' );
+Route::get( '/music/all-tracks/{user}/autor', [ TrackController::class, 'filterByUser' ] )->name( 'track.filterByUser' );
