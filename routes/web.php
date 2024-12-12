@@ -23,3 +23,7 @@ Route::put( '/profile/{user}/edit-profile', [ ProfileController::class, 'editPro
 Route::get( '/music/create', [ TrackController::class, 'create' ] )->name( 'track.create' );
 // STORE NUOVO TRACK
 Route::post( '/music/create', [ TrackController::class, 'store' ] )->name( 'track.store' );
+// ROTTA INDEX TRACK
+Route::get( '/music/all-tracks', [ TrackController::class, 'index' ] )->name( 'track.index' );
+// ROTTA CERCA PER ARTISTA
+Route::get( '/music/all-tracs/{user}/autor', [ TrackController::class, 'filterByUser' ] )->name( 'track.filterByUser' );

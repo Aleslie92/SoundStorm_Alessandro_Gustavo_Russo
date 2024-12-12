@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ class TrackController extends Controller implements HasMiddleware {
 
     public static function middleware() : array {
         return [
-            new Middleware( 'auth', except:[ 'index', 'show' ] ),
+            new Middleware( 'auth', except:[ 'index', 'filterByUser' ] ),
         ];
     }
 
@@ -21,7 +22,15 @@ class TrackController extends Controller implements HasMiddleware {
     */
 
     public function index() {
-        //
+        $tracks = Track::orderBy( 'created_at', 'desc' )->get();
+        return view( 'track.index', compact( 'tracks' ) );
+    }
+
+    public function filterByUser( User $user ) {
+        $tracks = Track::where( 'user_id', $user->id )
+        ->orderBy( 'created_at', 'desc' )
+        ->get();
+        return view( 'track.filterByUser', compact( 'tracks', 'user' ) );
     }
 
     /**

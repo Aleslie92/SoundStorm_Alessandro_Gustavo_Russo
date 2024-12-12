@@ -9,7 +9,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller implements HasMiddleware {
-    public static function middleware() : array  {
+    public static function middleware() : array {
         return [ 'auth' ];
     }
 

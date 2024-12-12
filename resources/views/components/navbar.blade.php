@@ -29,10 +29,10 @@
               <p class="dropdown-item">Ciao, Visitatore</p>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="{{route('login')}}">Login</a></li>
-              <li><a class="dropdown-item" href="{{route('register')}}">Register</a></li>
+              <li><a class="dropdown-item" href="{{route('register')}}">Register</a></li>          
               @endauth
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="{{route('track.index')}}">Tutti i Brani</a></li>
             </ul>
           </li>
           <li class="nav-item">
