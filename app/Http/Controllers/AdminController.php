@@ -60,4 +60,22 @@ class AdminController extends Controller implements HasMiddleware {
 
         return view( 'admin.genres', compact( 'genres' ) );
     }
+
+    public function storeGenre( Request $request ) {
+
+        // if ( !auth()->user()->isAdmin() ) {
+        //     abort( 403, 'Accesso Non Autorizzato' );
+
+        // }
+
+        $request->validate( [
+            'name' => 'required',
+        ] );
+
+        Genre::create( [
+            'name' => $request->name,
+        ] );
+
+        return redirect()->back()->with( 'success', 'Genere Creato Correttamente' );
+    }
 }

@@ -16,7 +16,7 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-4">
-                <form action="">
+                <form action="{{route('admin.dashboard.storegenre')}}" method="POST">
                     @csrf
                     <div>
                         <label for="name" class="form-label">Aggiungi Genere</label>
@@ -24,6 +24,11 @@
                     </div>
                     <button type="submit" class="btn btn-primary mt-1">Crea</button>
                 </form>
+                @if (session('success'))
+                    <div class="alert alert-success mt-3">
+                        {{session('success')}}
+                    </div>
+                 @endif
             </div>
             <div class="col-12 col-md-6">
                <table class="table striped border">

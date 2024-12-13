@@ -39,3 +39,5 @@ Route::get( '/admin/dashboard/users', [ AdminController::class, 'users' ] )->nam
 Route::get( '/admin/dashboard/tracks', [ AdminController::class, 'tracks' ] )->name( 'admin.dashboard.tracks' );
 //ROTTA GENERI
 Route::get( '/admin/dashboard/genres', [ AdminController::class, 'genres' ] )->name( 'admin.dashboard.genres' );
+//ROTTE POST PER STATO GENERI
+Route::post( '/admin/dashboard/genres/store', [ AdminController::class, 'storeGenre' ] )->name( 'admin.dashboard.storegenre' );
