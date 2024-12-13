@@ -18,6 +18,7 @@ class Profile extends Model {
         'region',
         'zip',
         'country',
+        'is_admin',
 
     ];
 

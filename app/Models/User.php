@@ -47,6 +47,10 @@ class User extends Authenticatable {
         ];
     }
 
+    public function isAdmin(): bool {
+        return $this->profile->is_admin;
+    }
+
     public function profile(): HasOne {
         return $this->hasOne( Profile::class );
     }

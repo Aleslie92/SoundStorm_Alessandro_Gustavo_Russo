@@ -20,6 +20,9 @@
               @auth
               <p class="dropdown-item">Ciao,{{Auth::user()->name}}</p>
               <li><hr class="dropdown-divider"></li>
+              @if (auth()->user()->isAdmin())
+              <li><a class="dropdown-item" href="{{route('admin.dashboard')}}">DashBoard</a></li>   
+             @endif
               <form action="{{route('logout')}}" method="POST">
                 @csrf
                 <button type="submit" class="dropdown-item">Logout</button>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\TrackController;
@@ -27,3 +28,14 @@ Route::post( '/music/create', [ TrackController::class, 'store' ] )->name( 'trac
 Route::get( '/music/all-tracks', [ TrackController::class, 'index' ] )->name( 'track.index' );
 // ROTTA CERCA PER ARTISTA
 Route::get( '/music/all-tracks/{user}/autor', [ TrackController::class, 'filterByUser' ] )->name( 'track.filterByUser' );
+
+// DASHBOARD ADMINISTRATOR
+//-----------------------------------------------------------------------------------------------
+// ROTTA DASHBOARD ADMIN
+Route::get( '/admin/dashboard', [ AdminController::class, 'dashboard' ] )->name( 'admin.dashboard' );
+// ROTTA VISTA TUTTI GLI UTENTI
+Route::get( '/admin/dashboard/users', [ AdminController::class, 'users' ] )->name( 'admin.dashboard.users' );
+// ROTTA VISTA TUTTI I TRACK
+Route::get( '/admin/dashboard/tracks', [ AdminController::class, 'tracks' ] )->name( 'admin.dashboard.tracks' );
+//ROTTA GENERI
+Route::get( '/admin/dashboard/genres', [ AdminController::class, 'genres' ] )->name( 'admin.dashboard.genres' );
